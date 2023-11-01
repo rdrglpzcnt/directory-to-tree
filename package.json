@@ -1,0 +1,10 @@
+{
+  "name": "directory-to-tree",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "node ./src/directoryToTree.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
