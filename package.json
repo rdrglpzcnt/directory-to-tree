@@ -2,9 +2,18 @@
   "name": "directory-to-tree",
   "version": "1.0.0",
   "description": "",
+  "type": "module",
   "scripts": {
-    "test": "node ./src/directoryToTree.js"
+    "serve": "nodemon ./src/app/server.js",
+    "directoryToTree": "node ./src/cli.js"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "pug": "^3.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
 }

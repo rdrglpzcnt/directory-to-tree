@@ -1,0 +1,75 @@
+html(lang="en")
+
+head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title directoryToTree | rdrglpzcnt
+    script(src="https://cdn.tailwindcss.com")
+    script.
+        tailwind.config = {
+            important: true,
+            theme: {
+                container: {
+                    center: true
+                }
+            }
+        }
+    style(type="text/tailwindcss").
+        @layer utilities {
+            html {
+                @apply h-screen;
+                @apply bg-slate-900;
+            }
+            body {
+                @apply text-green-200;
+                @apply min-h-screen;
+            }    
+        }
+body
+
+    main
+    
+        .container.p-8
+        
+            .flex.flex-items-center.justify-center
+                div.max-w-2xl.bg-slate-800.p-8.rounded
+
+                    div.mb-8
+                        h1.mb-2.text-xl.font-bold.text-green-200 Get directory structure with desired depth.
+                        small The folders shown are relative to #[span.text-green-500 Node.js] #[span.text-mono.p-1.bg-slate-700.rounded-sm process.cwd()] which is the project root.
+
+                    form 
+                        .flex.flex-col.gap-8
+
+                            div
+                                label.block.font-bold.mb-2(for="rootPath") Select the directory to inspect
+                                .flex.gap-4
+                                    each dir in dirs
+                                        label.cursor-pointer.flex.gap-2.p-1.bg-slate-600.rounded.font-bold(for=dir)
+                                            input(type="radio" name="rootPath" value=dir id=dir checked=rootPath == dir || dir == dirs[0])
+                                            span=dir
+                            
+                            div
+                                label.block.font-bold.mb-2(for="maxDepth") Select object depth #[small.text-green-300 From 0 - infinite]
+                                input#maxDepth.p-1.bg-slate-600.rounded(
+                                    type="number"
+                                    min="0"
+                                    pattern="/\d"
+                                    value=maxDepth || 0 name="maxDepth")
+
+                            button.p-2.bg-green-500.rounded Inspect
+
+                            
+
+                            //- if dirs
+                            //-     .flex.gap-4
+                            //-         each dir in dirs
+                            //-             a.p-1.bg-green-600.rounded.font-bold(href=`?maxDepth=0&rootPath=${dir}`)=dir
+
+                    
+                    pre.w-full.overflow-auto.p-2.bg-slate-600.text-wrap.text-mono.rounded=JSON.stringify(data, null, 4)
+        
+        footer.text-center.py-16 by rdrglpzcnt
+
+
+    
