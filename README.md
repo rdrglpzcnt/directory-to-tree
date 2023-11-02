@@ -17,7 +17,7 @@ You can run the function from the CLI with `npm run directoryToTree`. This funct
 **rootPath**: *String* - The path to the root directory you want to process (relative to `process.cwd()`).
 **maxDepth**: *Number* - The depth of the directory tree to include in the result structure;
 
-### Examples
+##### Examples
 - npm run directoryToTree
 - npm run directoryToTree node_modules 5
 - npm run directoryToTree ./ 10
